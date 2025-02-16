@@ -13,7 +13,6 @@ This AI-powered **Customer Service Chatbot** is designed to provide real-time as
 
 The chatbot is built using **Rasa**, an advanced conversational AI framework, and integrates **machine learning, APIs, and sentiment analysis** to enhance customer interactions.
 
-
 ## **Features**
 ###  Order Management  
 - Users can **check the status** of their orders.  
@@ -42,7 +41,6 @@ The chatbot is built using **Rasa**, an advanced conversational AI framework, an
 - If the chatbot does not recognize a query, it provides **alternative responses**.
 - If an API request **fails**, it **returns a predefined message**.
 
-
 ## **Technologies Used**
 - **Rasa 3.6.21** – Conversational AI framework  
 - **Python 3.8** – Backend development  
@@ -67,14 +65,12 @@ The chatbot is built using **Rasa**, an advanced conversational AI framework, an
 - Users can ask for the **current weather** in a city.  -
 - Users can check if bad weather may **delay their shipments**.
 
-
 ## **Real-World API Integrations**
 ###  **1. OpenWeather API (Weather & Shipping Delay Prediction)**
 - Retrieves **live weather forecasts** based on user queries.  
 - Determines if **bad weather conditions** may **cause shipping delays**.  
 - Implements **robust error handling** for API failures.
 API key for OpenWeather (free tier available at https://openweathermap.org/)
-
 
 ### **2. Sentiment Analysis (VADER - NLTK)**
 - Analyzes **user emotions** in real-time.  
@@ -87,12 +83,34 @@ API key for OpenWeather (free tier available at https://openweathermap.org/)
    - If an **unrecognized query** is detected, the chatbot provides a **helpful fallback response**.  
 - **API Failures:**  
    - If the OpenWeather API **fails**, the chatbot returns a **default response** instead.
- 
+
+## **Changes Made**
+To optimize the chatbot's dialogue handling, we implemented the following policy modifications:
+- MemoizationPolicy: Increased max_history to 5 to improve recall of past conversations.
+- TEDPolicy: Adjusted max_history to 5 and increased epochs to 100 for better learning of conversation patterns.
+- UnexpecTEDIntentPolicy: Enabled unexpected intent handling with max_history: 5 and epochs: 100 to improve robustness.
+- FallbackClassifier: Configured with a threshold of 0.3 and ambiguity_threshold of 0.1 to enhance responses to unknown inputs.
+- LanguageDetector: Added an automatic language detection mechanism to ensure responses align with the user’s language (Greek-English).
+- 
+ ## Why These Modifications Were Chosen
+- The MemoizationPolicy helps the bot remember previous interactions within a session, making conversations more natural and context-aware.
+- The TEDPolicy provides a more robust learning process, allowing the chatbot to generalize better across different dialogue flows.
+- The UnexpecTEDIntentPolicy ensures the bot can handle unpredictable user inputs without breaking the conversation.
+- The fallback responses were designed to be more informative based on internal testing.
+- The LanguageDetector ensures smooth multilingual support by dynamically detecting the user’s language and responding accordingly.
+
+ ## Observed Results and Insights
+- Improved response accuracy: The chatbot now provides more context-aware answers, thanks to the enhanced MemoizationPolicy and TEDPolicy.
+- Better handling of unexpected inputs: The UnexpecTEDIntentPolicy significantly reduced chatbot failures in handling uncommon queries.
+- Preliminary tests suggest that fallback responses are more informative compared to a generic error message.
+
 ## **Future Improvements**
+- Imrove the multilingual chatbot with nlp models such as fasstext
+- Replace VADER with a Bert model
 -Expand support for more languages beyond English & Greek.
 -Implement more APIs for tracking orders in real-time.
 -Add voice integration for a more interactive experience.
 
-## Authors
-## Antigoni Klimi – M.Sc. Student in Language Technology
-## GitHub: AntigoniKlimi
+# Authors
+# Antigoni Klimi – M.Sc. Student in Language Technology
+# GitHub: AntigoniKlimi
