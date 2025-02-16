@@ -87,3 +87,12 @@ API key for OpenWeather (free tier available at https://openweathermap.org/)
    - If an **unrecognized query** is detected, the chatbot provides a **helpful fallback response**.  
 - **API Failures:**  
    - If the OpenWeather API **fails**, the chatbot returns a **default response** instead.
+ 
+## **Future Improvements**
+-Expand support for more languages beyond English & Greek.
+-Implement more APIs for tracking orders in real-time.
+-Add voice integration for a more interactive experience.
+
+## Authors
+## Antigoni Klimi – M.Sc. Student in Language Technology
+## GitHub: AntigoniKlimi
