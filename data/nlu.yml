@@ -1,0 +1,209 @@
+version: "3.1"
+
+nlu:
+- intent: check_order_status
+  examples: |
+    - Που είναι η παραγγελία μου;
+    - Θέλω να δω την κατάσταση της παραγγελίας μου.
+    - Έχει φτάσει η παραγγελία μου;
+    - Where is my order?
+    - I want to check the status of my order.
+    - Has my order arrived?
+
+- intent: cancel_order
+  examples: |
+    - Θέλω να ακυρώσω μια παραγγελία.
+    - Πώς ακυρώνω την παραγγελία μου;
+    - Μπορώ να ακυρώσω την παραγγελία μου;
+     - I want to cancel an order.
+    - How do I cancel my order?
+    - Can I cancel my purchase?
+
+- intent: faq_payment_methods
+  examples: |
+    - Ποιους τρόπους πληρωμής δέχεστε; 
+    - Δέχετε κάρτες Visa;
+    - Μπορώ να πληρώσω με PayPal;
+    - What payment methods do you accept?
+    - Do you accept Visa cards?
+    - Can I pay with PayPal?
+
+- intent: faq_return_policy
+  examples: |
+    - Ποιες είναι οι πολιτικές επιστροφής;
+    - Μπορώ να επιστρέψω ένα προϊόν;
+    - Ποιο είναι το όριο για επιστροφή προϊόντος;
+     - What is your return policy?
+    - Can I return a product?
+    - How many days do I have to return an item?
+
+- intent: goodbye
+  examples: |
+    - Αντίο
+    - Ευχαριστώ, γεια σας
+    - Τα λέμε αργότερα
+     - Goodbye
+    - Thank you, bye!
+    - See you later
+
+- intent: track_order
+  examples: |
+    - Μπορώ να παρακολουθήσω την παραγγελία μου;
+    - Που βρίσκεται η παραγγελία μου;
+    - Ποιες είναι οι επιλογές παρακολούθησης;
+    - Can I track my order?
+    - Where is my package?
+    - What are the tracking options?
+
+- intent: product_inquiry
+  examples: |
+    - Πόσο κοστίζει το προϊόν;
+    - Τι προσφορές έχετε;
+    - Τι προϊόντα πουλάτε;
+    - How much does this product cost?
+    - Do you have any special offers?
+    - What products do you sell?
+
+- intent: ask_shipping_methods
+  examples: |
+    - Ποιες επιλογές αποστολής έχετε;
+    - Δωρεάν αποστολή υπάρχει;
+    - Ποιες είναι οι επιλογές αποστολής για το προϊόν;
+    - What are the available shipping options?
+    - Do you offer free shipping?
+    - What are the shipping methods for this product?
+
+- intent: ask_weather
+  examples: |
+    - Πώς είναι ο καιρός σήμερα;
+    - Τι καιρό θα κάνει αύριο;
+    - Μπορείς να μου πεις τον καιρό για την Αθήνα;
+    - Θα βρέξει σήμερα;
+    - Ποια είναι η θερμοκρασία αυτή τη στιγμή;
+    - Χρειάζεται να πάρω ομπρέλα αύριο;
+    - Θα έχει κρύο την επόμενη εβδομάδα;
+    - Will it rain today?
+    - What is the weather like today?
+    - Can you tell me the weather in Athens?
+
+- intent: ask_weather_for_shipping
+  examples: |
+    - Θα επηρεαστεί η αποστολή μου λόγω κακοκαιρίας;
+    - Υπάρχουν καθυστερήσεις λόγω καιρού;
+    - Θα έχει καταιγίδα στη διεύθυνση αποστολής;
+    - Η παραγγελία μου θα καθυστερήσει λόγω χιονιού;
+    - Τι καιρό θα έχει στη διεύθυνση αποστολής μου;
+    - Will my shipment be affected by bad weather?
+    - Are there any shipping delays due to the weather?
+
+- intent: provide_order_number
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - Ο αριθμός της παραγγελίας μου είναι 3
+    - Order number 5
+    - Το νούμερο είναι 7
+    - Δίνω τον αριθμό 2
+    - Η παραγγελία μου είναι η 9
+    - My order number is 2
+    - My order is number 9
+
+
+#Χαιρετισμός
+- intent: greet
+  examples: |
+    - Γεια
+    - Γεια σου
+    - Καλησπέρα
+    - Καλημέρα
+    - Hello
+    - Hi
+    - Hey there
+    - Hey
+
+##Προσθήκη Sentiment Analysis Intents
+### Χαρούμενος Χρήστης
+- intent: express_happiness
+  examples: |
+    - Είμαι πολύ χαρούμενος σήμερα!
+    - Μου αρέσει πολύ το προϊόν σας!
+    - Αυτό είναι φανταστικό!
+    - Είμαι ενθουσιασμένος!
+    - Ευχαριστώ πάρα πολύ!
+    - This is amazing!
+    - I'm so happy right now!
+    - Great service!
+
+### Στεναχωρημένος Χρήστης
+- intent: express_sadness
+  examples: |
+    - Είμαι πολύ στεναχωρημένος...
+    - Απογοητεύτηκα πολύ από την εξυπηρέτηση.
+    - Δεν μου άρεσε καθόλου αυτό που έγινε.
+    - Είμαι δυσαρεστημένος με την παραγγελία μου.
+    - Όλα πάνε στραβά σήμερα...
+    - I'm so disappointed.
+    - This is frustrating.
+
+###Θυμωμένος Χρήστης
+- intent: express_anger
+  examples: |
+    - Είμαι πολύ θυμωμένος!
+    - Αυτή η εξυπηρέτηση είναι απαράδεκτη!
+    - Δεν το πιστεύω αυτό που συνέβη!
+    - Είμαι εκνευρισμένος!
+    - Αυτό είναι σκέτη κοροϊδία!
+    - This is unacceptable!
+    - I'm really angry right now!
+    - I can't believe this!
+
+### Γενική Δυσαρέσκεια
+- intent: express_dissatisfaction
+  examples: |
+    - Δεν είμαι πολύ ευχαριστημένος με την υπηρεσία σας.
+    - Περίμενα κάτι καλύτερο.
+    - Θα ήθελα να εκφράσω τη δυσαρέσκειά μου.
+    - Η εμπειρία μου δεν ήταν ιδανική.
+    - I'm not satisfied.
+    - This could have been better.
+
+### Ουδέτερο Συναίσθημα
+- intent: express_neutral
+  examples: |
+    - Όλα καλά, ευχαριστώ.
+    - Δεν έχω κάποιο πρόβλημα.
+    - Απλώς ρωτάω.
+    - Εντάξει, κατάλαβα.
+    - It's okay.
+    - I just wanted to ask.
+
+
+##Νέα Intents για Καλύτερη Εμπειρία**
+### Ευχαριστίες Χρήστη
+- intent: thank_you
+  examples: |
+    - Ευχαριστώ πολύ!
+    - Σας ευχαριστώ για τη βοήθεια!
+    - Thanks a lot!
+    - Thank you very much!
+    - Appreciate it!
+
+###Αίτημα για Ανθρώπινη Εξυπηρέτηση**
+- intent: request_human
+  examples: |
+    - Μπορώ να μιλήσω με έναν άνθρωπο;
+    - Θέλω να μιλήσω με εκπρόσωπο.
+    - Can I talk to a human agent?
+    - I need to speak with someone.
+    - Υπάρχει κάποιος να μιλήσω;
+
+
+

@@ -1,0 +1,79 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Confirm order cancellation
+  steps:
+  - intent: provide_order_number
+  - action: action_cancel_order
+
+- rule: Answer shipping methods
+  steps:
+  - intent: ask_shipping_methods
+  - action: utter_ask_shipping_methods
+
+# - rule: Greet the user
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+
+- rule: Respond to happiness
+  steps:
+  - intent: express_happiness
+  - action: action_analyze_sentiment
+  - action: utter_happy_response
+
+- rule: Respond to sadness
+  steps:
+  - intent: express_sadness
+  - action: action_analyze_sentiment
+  - action: utter_sad_response
+
+- rule: Respond to anger
+  steps:
+  - intent: express_anger
+  - action: action_analyze_sentiment
+  - action: utter_angry_response
+
+- rule: Respond to dissatisfaction
+  steps:
+  - intent: express_dissatisfaction
+  - action: action_analyze_sentiment
+  - action: utter_dissatisfaction_response
+
+- rule: Respond to neutral emotion
+  steps:
+  - intent: express_neutral
+  - action: action_analyze_sentiment
+  - action: utter_neutral_response
+
+- rule: Respond to thank you
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+
+- rule: Connect to human agent
+  steps:
+  - intent: request_human
+  - action: utter_request_human
+
+- rule: Greet and detect language
+  steps:
+  - intent: greet
+  - action: action_detect_language
+  - action: utter_greet
+
+- rule: Provide product offers
+  steps:
+  - intent: product_inquiry
+  - action: utter_product_inquiry

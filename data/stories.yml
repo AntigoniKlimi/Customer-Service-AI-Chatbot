@@ -1,0 +1,117 @@
+version: "3.1"
+
+stories:
+- story: check order status
+  steps:
+  - intent: check_order_status
+  - action: action_track_order
+
+
+- story: User cancels order
+  steps:
+  - intent: cancel_order
+  - action: utter_cancel_order
+  - slot_was_set:
+      - order_number: null
+  - intent: provide_order_number
+  - action: action_cancel_order
+
+- story: faq payment methods
+  steps:
+  - intent: faq_payment_methods
+  - action: utter_faq_payment_methods
+
+- story: faq return policy
+  steps:
+  - intent: faq_return_policy
+  - action: utter_faq_return_policy
+
+- story: user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: track order
+  steps:
+  - intent: track_order
+  - action: action_track_order
+
+- story: ask weather
+  steps:
+  - intent: ask_weather
+  - action: utter_ask_weather
+  - action: action_get_weather
+
+- story: ask weather for shipping
+  steps:
+  - intent: ask_weather_for_shipping
+  - action: utter_ask_weather_for_shipping
+  - action: action_check_shipping_weather
+
+# - story: Detect language and greet user
+#   steps:
+#   - intent: greet
+#   - action: action_detect_language
+#   - action: utter_greet
+
+
+# - story: User says hello
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+
+- story: User is happy
+  steps:
+  - intent: express_happiness
+  - action: action_analyze_sentiment
+  - action: utter_happy_response
+
+- story: User is sad
+  steps:
+  - intent: express_sadness
+  - action: action_analyze_sentiment
+  - action: utter_sad_response
+
+- story: User is angry
+  steps:
+  - intent: express_anger
+  - action: action_analyze_sentiment
+  - action: utter_angry_response
+
+- story: User is dissatisfied
+  steps:
+  - intent: express_dissatisfaction
+  - action: action_analyze_sentiment
+  - action: utter_dissatisfaction_response
+
+- story: User is neutral
+  steps:
+  - intent: express_neutral
+  - action: action_analyze_sentiment
+  - action: utter_neutral_response
+
+- story: User says thank you
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+
+# - story: User requests human assistance 
+#   steps:
+#   - intent: request_human
+#   - action: utter_request_human
+
+# - story: User says hello
+#   steps:
+#   - intent: greet
+#   - action: action_detect_language
+#   - action: utter_greet
+- story: User requests human assistance
+  steps:
+  - intent: request_human
+  - action: utter_request_human
+
+- story: User says hello and detect language
+  steps:
+  - intent: greet
+  - action: action_detect_language
+  - action: utter_greet

@@ -1,0 +1,126 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - check_order_status
+  - cancel_order
+  - faq_payment_methods
+  - faq_return_policy
+  - express_happiness
+  - express_sadness
+  - express_anger
+  - express_dissatisfaction
+  - express_neutral
+  - thank_you
+  - request_human
+  - ask_weather
+  - ask_weather_for_shipping
+  - track_order
+  - provide_order_number
+  - product_inquiry
+
+responses:
+  utter_greet:
+    - text: "Γεια σου! Πώς μπορώ να σε βοηθήσω σήμερα;"
+    - text: "Hello! How can I assist you today?"
+
+  utter_iamabot:
+    - text: "Είμαι ένα AI chatbot φτιαγμένο με Rasa!"
+
+  utter_goodbye:
+    - text: "Ευχαριστώ που επικοινώνησες μαζί μου! Αν χρειαστείς κάτι άλλο, θα είμαι εδώ."
+    - text: "Thank you for reaching out! If you need anything else, I'll be here."
+
+  utter_check_order_status:
+    - text: "Για να ελέγξω την παραγγελία σου, μπορείς να μου δώσεις τον αριθμό παραγγελίας σου;"
+    - text: "To check your order, can you provide your order number?"
+
+  utter_cancel_order:
+    - text: "Για να προχωρήσω στην ακύρωση, χρειάζομαι τον αριθμό παραγγελίας σου. Μπορείς να τον γράψεις εδώ;"
+    - text: "To proceed with the cancellation, I need your order number. Can you provide it here?"
+
+  utter_faq_payment_methods:
+    - text: "Δεχόμαστε πληρωμές με: \n - Πιστωτική/χρεωστική κάρτα\n - PayPal\n - Αντικαταβολή"
+    - text: "We accept payments via:\n - Credit/Debit Card\n - PayPal\n - Cash on Delivery"
+
+  utter_faq_return_policy:
+    - text: "Η πολιτική επιστροφών μας επιτρέπει την επιστροφή προϊόντων εντός 30 ημερών από την ημερομηνία αγοράς."
+    - text: "Our return policy allows returns within 30 days from the purchase date."
+
+  utter_ask_weather:
+    - text: "Μπορώ να σου πω τον καιρό! Σε ποια πόλη σε ενδιαφέρει;"
+    - text: "I can provide you with the weather! Which city are you interested in?"
+
+  utter_ask_weather_for_shipping:
+    - text: "Θα ελέγξω αν υπάρχει κακοκαιρία που μπορεί να επηρεάσει την αποστολή σου."
+    - text: "I'll check if there's bad weather that may affect your shipment."
+
+  utter_happy_response:
+    - text: "Χαίρομαι που το ακούω!  Υπάρχει κάτι άλλο που μπορώ να κάνω για εσένα;"
+    - text: "I'm glad to hear that! Is there anything else I can do for you?"
+
+  utter_sad_response:
+    - text: "Λυπάμαι που αισθάνεσαι έτσι. Μπορώ να σε βοηθήσω με κάτι συγκεκριμένο;"
+    - text: "I'm sorry you're feeling that way. Can I help you with something specific?"
+
+  utter_angry_response:
+    - text: "Καταλαβαίνω ότι είσαι εκνευρισμένος. Αν μπορώ να κάνω κάτι για να διορθώσω το πρόβλημα, πες μου!"
+    - text: "I understand that you're frustrated. If there's something I can do to fix the issue, let me know!"
+
+  utter_dissatisfaction_response:
+    - text: "Λυπάμαι που δεν είσαι απόλυτα ικανοποιημένος. Θες να μου πεις περισσότερα για το πρόβλημα;"
+    - text: "I'm sorry you're not completely satisfied. Would you like to tell me more about the issue?"
+
+  utter_neutral_response:
+    - text: "Εντάξει! Αν χρειαστείς κάτι άλλο, ενημέρωσέ με."
+    - text: "Alright! If you need anything else, just let me know."
+
+  utter_thank_you:
+    - text: "Παρακαλώ! Είμαι πάντα εδώ για να βοηθήσω."
+    - text: "You're welcome! I'm always here to help."
+
+  utter_request_human:
+    - text: "Συνδέω την κλήση σου με έναν εκπρόσωπο. Παρακαλώ περίμενε..."
+    - text: "I'm connecting your call to a representative. Please hold on..."
+
+  utter_product_inquiry:
+    - text: "Αυτή τη στιγμή έχουμε έκπτωση 20% στα νέα προϊόντα! Δες περισσότερα στο site μας."
+    - text: "Right now, we have a 20% discount on new products! Check out more on our website."
+
+  utter_ask_shipping_methods:
+    - text: "Προσφέρουμε τις εξής επιλογές αποστολής:\n - Κανονική αποστολή (3-5 εργάσιμες ημέρες)\n - Γρήγορη αποστολή (1-2 εργάσιμες ημέρες)\n - Δωρεάν αποστολή για παραγγελίες άνω των 50€."
+    - text: "We offer the following shipping options:\n - Standard shipping (3-5 business days)\n - Express shipping (1-2 business days)\n - Free shipping for orders over 50€."
+
+actions:
+  - action_detect_language
+  - action_track_order
+  - action_cancel_order
+  - action_analyze_sentiment
+  - action_get_weather
+  - action_check_shipping_weather
+
+slots:
+  order_number:
+    type: text
+    mappings:
+      - type: from_text
+    influence_conversation: true
+   
+
+  language:
+    type: text
+    mappings:
+      - type: from_text
+    influence_conversation: true
+
+  sentiment:
+    type: text
+    mappings:
+      - type: from_text
+    influence_conversation: true
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
